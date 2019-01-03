@@ -8,6 +8,7 @@ target 'EstacionApp' do
   # Pods for EstacionApp
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   target 'EstacionAppTests' do
     inherit! :search_paths
     # Pods for testing

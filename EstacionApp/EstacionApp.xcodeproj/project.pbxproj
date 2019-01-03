@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23E7E632F3D1E7891DF7E0FD /* Pods_EstacionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F353E8B93A3492DE0EFB5279 /* Pods_EstacionAppTests.framework */; };
+		42036F3C21DEA09A00B6880E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42036F3B21DEA09A00B6880E /* User.swift */; };
 		4294111421DD67D1002FFFE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294111321DD67D1002FFFE2 /* AppDelegate.swift */; };
 		4294111621DD67D1002FFFE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294111521DD67D1002FFFE2 /* ViewController.swift */; };
 		4294111921DD67D1002FFFE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4294111721DD67D1002FFFE2 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		2D471480F85B582757014B1E /* Pods-EstacionAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EstacionAppTests/Pods-EstacionAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		332BB3F62732D3637E3FE39C /* Pods_EstacionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstacionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB68DB44346B833F3DBD6C2 /* Pods-EstacionAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EstacionAppTests/Pods-EstacionAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		42036F3B21DEA09A00B6880E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4294111021DD67D1002FFFE2 /* EstacionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EstacionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4294111321DD67D1002FFFE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4294111521DD67D1002FFFE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42036F3821DEA04000B6880E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42036F3B21DEA09A00B6880E /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		42036F3921DEA04A00B6880E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4294111721DD67D1002FFFE2 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42036F3A21DEA05300B6880E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4294114321DD7DB9002FFFE2 /* RegisterViewController.swift */,
+				4294114521DD7DD4002FFFE2 /* LogInViewController.swift */,
+				4294111521DD67D1002FFFE2 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		4294110721DD67D1002FFFE2 = {
 			isa = PBXGroup;
 			children = (
@@ -120,11 +148,10 @@
 		4294111221DD67D1002FFFE2 /* EstacionApp */ = {
 			isa = PBXGroup;
 			children = (
+				42036F3A21DEA05300B6880E /* Controllers */,
+				42036F3921DEA04A00B6880E /* Views */,
+				42036F3821DEA04000B6880E /* Models */,
 				4294111321DD67D1002FFFE2 /* AppDelegate.swift */,
-				4294111521DD67D1002FFFE2 /* ViewController.swift */,
-				4294114321DD7DB9002FFFE2 /* RegisterViewController.swift */,
-				4294114521DD7DD4002FFFE2 /* LogInViewController.swift */,
-				4294111721DD67D1002FFFE2 /* Main.storyboard */,
 				4294111A21DD67D2002FFFE2 /* Assets.xcassets */,
 				4294111C21DD67D2002FFFE2 /* LaunchScreen.storyboard */,
 				4294111F21DD67D2002FFFE2 /* Info.plist */,
@@ -337,16 +364,32 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EstacionApp/Pods-EstacionApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +451,7 @@
 				4294114621DD7DD4002FFFE2 /* LogInViewController.swift in Sources */,
 				4294114421DD7DB9002FFFE2 /* RegisterViewController.swift in Sources */,
 				4294111621DD67D1002FFFE2 /* ViewController.swift in Sources */,
+				42036F3C21DEA09A00B6880E /* User.swift in Sources */,
 				4294111421DD67D1002FFFE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

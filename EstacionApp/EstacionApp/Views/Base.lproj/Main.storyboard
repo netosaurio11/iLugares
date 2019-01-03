@@ -138,28 +138,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnG-aD-dAa">
                                 <rect key="frame" x="71" y="259" width="196" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="tel"/>
                             </textField>
                             <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f73-Mi-e4i">
                                 <rect key="frame" x="71" y="297" width="196" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmar contraseña" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-43-Aof">
                                 <rect key="frame" x="71" y="335" width="196" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tarifa/hora" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhp-Om-uNF">
                                 <rect key="frame" x="89" y="407" width="197" height="30"/>
@@ -215,6 +215,9 @@
                                 <state key="normal" title="Registrar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerTapped:" destination="bf8-HI-HzM" eventType="touchUpInside" id="nE2-g8-Ftw"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dirección" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jJB-Nv-FfS">
                                 <rect key="frame" x="89" y="445" width="197" height="30"/>
@@ -229,8 +232,14 @@
                     </view>
                     <connections>
                         <outlet property="address" destination="jJB-Nv-FfS" id="05a-Lg-ows"/>
+                        <outlet property="email" destination="IW2-QB-k6x" id="NUf-qX-9Dj"/>
+                        <outlet property="lastnames" destination="dP2-2F-lg4" id="1DL-zj-7Lw"/>
+                        <outlet property="names" destination="NBw-pz-2vo" id="7P1-67-bYO"/>
                         <outlet property="parkingLabel" destination="iSl-mX-Ihs" id="bl6-Sx-gNj"/>
                         <outlet property="parkingSwitch" destination="pnD-qA-msH" id="IaG-ng-PSl"/>
+                        <outlet property="password" destination="f73-Mi-e4i" id="nUY-2U-zUv"/>
+                        <outlet property="password2" destination="KAQ-43-Aof" id="dwn-u0-qru"/>
+                        <outlet property="phone" destination="tnG-aD-dAa" id="qVN-Td-Iqq"/>
                         <outlet property="rate" destination="hhp-Om-uNF" id="HXV-oc-O18"/>
                         <outlet property="storeStuffLabel" destination="Xhl-7G-3ga" id="C6L-87-C4F"/>
                         <outlet property="storeStuffSwitch" destination="dI3-LH-coH" id="5s2-5q-1vu"/>
