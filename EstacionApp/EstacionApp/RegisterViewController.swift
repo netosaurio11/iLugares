@@ -12,6 +12,7 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var thereIsAPlace: UISwitch!
     @IBOutlet weak var rate: UITextField!
+    @IBOutlet weak var address: UITextField!
     @IBOutlet weak var parkingSwitch: UISwitch!
     @IBOutlet weak var parkingLabel: UILabel!
     @IBOutlet weak var storeStuffSwitch: UISwitch!
@@ -24,6 +25,7 @@ class RegisterViewController: UIViewController {
     @IBAction func switchPlaceChanged(_ sender: UISwitch) {
         if thereIsAPlace.isOn{
             rate.isHidden = false
+            address.isHidden = false
             parkingSwitch.isHidden = false
             parkingLabel.isHidden = false
             storeStuffSwitch.isHidden = false
@@ -34,6 +36,7 @@ class RegisterViewController: UIViewController {
     }
     func hidePlaceElements(){
         rate.isHidden = true
+        address.isHidden = true
         parkingSwitch.isHidden = true
         parkingLabel.isHidden = true
         storeStuffSwitch.isHidden = true
