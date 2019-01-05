@@ -50,27 +50,30 @@ class RegisterViewController: UIViewController {
         }
     }
     @IBAction func registerTapped(_ sender: UIButton) {
-        createUser()
-        var ref: DocumentReference? = nil
-        // Add a second document with a generated ID.
-        ref = db.collection("users").addDocument(data: [
-            "names": user.name,
-            "lastnames": user.lastname,
-            "email": user.email,
-            "phone": user.phone
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-                let alertRegister = UIAlertController(title: "Usuario Registrado", message: "Has sido registrado correctamente", preferredStyle: .actionSheet)
-                let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                alertRegister.addAction(okAction)
-                self.present(alertRegister, animated: true, completion: nil)
+        if createUser() {
+            var ref: DocumentReference? = nil
+            // Add a second document with a generated ID.
+            ref = db.collection("users").addDocument(data: [
+                "names": user.name,
+                "lastnames": user.lastname,
+                "email": user.email,
+                "phone": user.phone
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                    let alertRegister = UIAlertController(title: "Usuario Registrado", message: "Has sido registrado correctamente", preferredStyle: .actionSheet)
+                    let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alertRegister.addAction(okAction)
+                    self.present(alertRegister, animated: true, completion: nil)
+                    self.clearTextFields()
+                }
             }
+
         }
     }
-    func createUser(){
+    func createUser() -> Bool {
         let alert = UIAlertController(title: "Error", message: "Debes llenar todos los campos.", preferredStyle: .actionSheet)
         let alertPassword = UIAlertController(title: "Error", message: "Tus contraseñas deben coincidir", preferredStyle: .actionSheet)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -78,27 +81,28 @@ class RegisterViewController: UIViewController {
         alert.addAction(okAction)
         guard let username = names.text else {
             self.present(alert, animated: true, completion: nil)
-            return
+            return false
         }
         guard let userlastname = lastnames.text else {
             self.present(alert, animated: true, completion: nil)
-            return
+            return false
         }
         guard let useremail = email.text else {
             self.present(alert, animated: true, completion: nil)
-            return
+            return false
         }
         guard let userphone = phone.text else {
             self.present(alert, animated: true, completion: nil)
-            return
+            return false
         }
         guard let userpassword = password.text else {
             self.present(alert, animated: true, completion: nil)
-            return
+            return false
         }
         
         if userpassword != password2.text {
             self.present(alertPassword, animated: true, completion: nil)
+            return false
         }
         
         user.name = username
@@ -106,6 +110,8 @@ class RegisterViewController: UIViewController {
         user.email = useremail
         user.phone = userphone
         user.password = userpassword
+        
+        return true
     }
     
     func showPlaceElements(){
@@ -123,6 +129,16 @@ class RegisterViewController: UIViewController {
         parkingLabel.isHidden = true
         storeStuffSwitch.isHidden = true
         storeStuffLabel.isHidden = true
+    }
+    func clearTextFields(){
+        names.text = ""
+        lastnames.text = ""
+        email.text = ""
+        phone.text = ""
+        password.text = ""
+        password2.text = ""
+        rate.text = ""
+        address.text = ""
     }
     
 }
