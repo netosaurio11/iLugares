@@ -9,10 +9,14 @@
 import UIKit
 import Firebase
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     var user: User = User(name: "", lastname: "", email: "", phone: "", password: "", rate: 0.0, address: "", parking: false, storestuff: false)
     var db: Firestore!
+    let alert = UIAlertController(title: "Error", message: "Debes llenar todos los campos.", preferredStyle: .actionSheet)
+    let alertPassword = UIAlertController(title: "Error", message: "Tus contraseñas deben coincidir", preferredStyle: .actionSheet)
+    let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+
     
     //Basic Info
     @IBOutlet weak var names: UITextField!
@@ -49,70 +53,58 @@ class RegisterViewController: UIViewController {
             hidePlaceElements()
         }
     }
-    @IBAction func registerTapped(_ sender: UIButton) {
-        if createUser() {
-            var ref: DocumentReference? = nil
-            // Add a second document with a generated ID.
-            ref = db.collection("users").addDocument(data: [
-                "names": user.name,
-                "lastnames": user.lastname,
-                "email": user.email,
-                "phone": user.phone
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("Document added with ID: \(ref!.documentID)")
-                    let alertRegister = UIAlertController(title: "Usuario Registrado", message: "Has sido registrado correctamente", preferredStyle: .actionSheet)
-                    let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                    alertRegister.addAction(okAction)
-                    self.present(alertRegister, animated: true, completion: nil)
-                    self.clearTextFields()
+    @IBAction func registerTapped(_ sender: UIButton!) {
+        let userToRegister = createUser()
+        
+        if (names.text == "" || lastnames.text == "" || email.text == "" || phone.text == "" || password.text == ""){
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            if password.text != password2.text{
+                alertPassword.addAction(okAction)
+                self.present(alertPassword, animated: true, completion: nil)
+            } else {
+                var ref: DocumentReference? = nil
+                // Add a second document with a generated ID.
+                ref = db.collection("users").addDocument(data: [
+                    "names": userToRegister.name,
+                    "lastnames": userToRegister.lastname,
+                    "email": userToRegister.email,
+                    "phone": userToRegister.phone
+                ]) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added with ID: \(ref!.documentID)")
+                        let alertRegister = UIAlertController(title: "Usuario Registrado", message: "Has sido registrado correctamente", preferredStyle: .actionSheet)
+                        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                        alertRegister.addAction(okAction)
+                        self.present(alertRegister, animated: true, completion: nil)
+                        self.clearTextFields()
+                    }
                 }
             }
 
         }
+        
     }
-    func createUser() -> Bool {
+    func createUser() -> User {
+        
         let alert = UIAlertController(title: "Error", message: "Debes llenar todos los campos.", preferredStyle: .actionSheet)
-        let alertPassword = UIAlertController(title: "Error", message: "Tus contraseñas deben coincidir", preferredStyle: .actionSheet)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alertPassword.addAction(okAction)
         alert.addAction(okAction)
-        guard let username = names.text else {
+        if let username = names.text,let userlastname = lastnames.text,let useremail = email.text, let userphone = phone.text, let userpassword = password.text{
+                user.name = username
+                user.lastname = userlastname
+                user.email = useremail
+                user.phone = userphone
+                user.password = userpassword
+        } else{
             self.present(alert, animated: true, completion: nil)
-            return false
         }
-        guard let userlastname = lastnames.text else {
-            self.present(alert, animated: true, completion: nil)
-            return false
-        }
-        guard let useremail = email.text else {
-            self.present(alert, animated: true, completion: nil)
-            return false
-        }
-        guard let userphone = phone.text else {
-            self.present(alert, animated: true, completion: nil)
-            return false
-        }
-        guard let userpassword = password.text else {
-            self.present(alert, animated: true, completion: nil)
-            return false
-        }
-        
-        if userpassword != password2.text {
-            self.present(alertPassword, animated: true, completion: nil)
-            return false
-        }
-        
-        user.name = username
-        user.lastname = userlastname
-        user.email = useremail
-        user.phone = userphone
-        user.password = userpassword
-        
-        return true
+        return user
     }
+    
     
     func showPlaceElements(){
         rate.isHidden = false
