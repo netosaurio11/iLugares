@@ -71,7 +71,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     "lastnames": userToRegister.lastname,
                     "email": userToRegister.email,
                     "phone": userToRegister.phone
-                ]) { err in
+                ]) { [unowned self] err in
                     if let err = err {
                         print("Error adding document: \(err)")
                     } else {
@@ -103,6 +103,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         return user
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            registerTapped(nil)
+        }
+        
+        return true
     }
     
     
