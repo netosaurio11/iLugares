@@ -30,4 +30,9 @@ struct Alert{
         alertPassword.addAction(okAction)
         return alertPassword
     }
+    func missingEmail(_ title: String, _ message: String) -> UIAlertController {
+        let alertEmail = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertEmail.addAction(okAction)
+        return alertEmail
+    }
 }

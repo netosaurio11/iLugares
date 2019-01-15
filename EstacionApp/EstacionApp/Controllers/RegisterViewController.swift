@@ -36,6 +36,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         hidePlaceElements()
         // [START setup]
         let settings = FirestoreSettings()
@@ -44,6 +46,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         // [END setup]
         db = Firestore.firestore()
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if (thereIsAPlace.isOn){
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= keyboardSize.height
+                }
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if (thereIsAPlace.isOn == false){
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
+    }
+
     @IBAction func switchPlaceChanged(_ sender: UISwitch) {
         if thereIsAPlace.isOn{
             showPlaceElements()
@@ -52,23 +73,56 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         }
     }
     @IBAction func registerTapped(_ sender: UIButton!) {
-        if (names.text == "" || lastnames.text == "" || email.text == "" || phone.text == "" || password.text == ""){
-            self.present(alert.missingFieldsAlert("Error", "Debes llenar todos los campos solcitados."), animated: true, completion: nil)
-        } else {
-            if password.text != password2.text{
-                self.present(alert.passwordErrorAlert("Error", "Tus contraseñas deben coincidir."), animated: true, completion: nil)
+        let switchOn = thereIsAPlace.isOn
+        switch switchOn {
+        case true:
+            if (names.text == "" || lastnames.text == "" || email.text == "" || phone.text == "" || password.text == "" || rate.text == "" || address.text == "" || (storeStuffSwitch.isOn == false && parkingSwitch.isOn == false)){
+                self.present(alert.missingFieldsAlert("Error", "Debes llenar todos los campos solcitados."), animated: true, completion: nil)
             } else {
-                connectToFireBase()
+                if password.text != password2.text{
+                    self.present(alert.passwordErrorAlert("Error", "Tus contraseñas deben coincidir."), animated: true, completion: nil)
+                } else {
+                    RegisterSpecialUser()
+                }
             }
+            
+        case false:
+            if (names.text == "" || lastnames.text == "" || email.text == "" || phone.text == "" || password.text == ""){
+                self.present(alert.missingFieldsAlert("Error", "Debes llenar todos los campos solcitados."), animated: true, completion: nil)
+            } else {
+                if password.text != password2.text{
+                    self.present(alert.passwordErrorAlert("Error", "Tus contraseñas deben coincidir."), animated: true, completion: nil)
+                } else {
+                    RegisterNormalUser()
+                }
+            }
+
         }
     }
-    func createUser() -> User {
+    func createNormalUser() -> User {
         if let username = names.text,let userlastname = lastnames.text,let useremail = email.text, let userphone = phone.text, let userpassword = password.text{
                 user.name = username
                 user.lastname = userlastname
                 user.email = useremail
                 user.phone = userphone
                 user.password = userpassword
+        } else{
+            self.present(alert.missingFieldsAlert("Error", "Debes llenar todos los campos."), animated: true, completion: nil)
+        }
+        return user
+    }
+    
+    func createSpecialUser() -> User {
+        if let username = names.text,let userlastname = lastnames.text,let useremail = email.text, let userphone = phone.text, let userpassword = password.text, let userRate = rate.text, let useraddress = address.text{
+            user.name = username
+            user.lastname = userlastname
+            user.email = useremail
+            user.phone = userphone
+            user.password = userpassword
+            user.rate = Double(userRate)!
+            user.address = useraddress
+            user.storestuff = storeStuffSwitch.isOn
+            user.parking = parkingSwitch.isOn
         } else{
             self.present(alert.missingFieldsAlert("Error", "Debes llenar todos los campos."), animated: true, completion: nil)
         }
@@ -114,8 +168,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         rate.text = ""
         address.text = ""
     }
-    func connectToFireBase () {
-        let userToRegister = createUser()
+    func RegisterNormalUser() {
+        let userToRegister = createNormalUser()
         var ref: DocumentReference? = nil
         // Add a second document with a generated ID.
         ref = db.collection("users").addDocument(data: [
@@ -123,6 +177,29 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             "lastnames": userToRegister.lastname,
             "email": userToRegister.email,
             "phone": userToRegister.phone
+        ]) { [unowned self] err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                self.present(self.alert.correctRegister("Usuario Registrado", "Has sido registrado correctamente"), animated: true, completion: nil)
+                self.clearTextFields()
+            }
+        }
+    }
+    func RegisterSpecialUser() {
+        let userToRegister = createSpecialUser()
+        var ref: DocumentReference? = nil
+        // Add a second document with a generated ID.
+        ref = db.collection("users").addDocument(data: [
+            "names": userToRegister.name,
+            "lastnames": userToRegister.lastname,
+            "email": userToRegister.email,
+            "phone": userToRegister.phone,
+            "rate": userToRegister.rate,
+            "address": userToRegister.address,
+            "storestuff": userToRegister.storestuff,
+            "parking": userToRegister.parking
         ]) { [unowned self] err in
             if let err = err {
                 print("Error adding document: \(err)")

@@ -94,11 +94,18 @@
                                 <state key="normal" title="Iniciar Sesión">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logIn:" destination="Jer-5U-Bar" eventType="touchUpInside" id="tC9-4A-sam"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85962980990000004" green="0.85597300529999998" blue="0.8121650815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="epq-UB-8x1"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="V9P-rJ-lai" id="ZQN-Jc-1KF"/>
+                        <outlet property="password" destination="2yi-3z-xb6" id="xhZ-Wj-FZl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3u-au-A8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,7 +198,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.65591734647750854" green="0.84229272603988647" blue="0.7722741961479187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="switchPlaceChanged:" destination="bf8-HI-HzM" eventType="valueChanged" id="dR8-tg-RAf"/>
+                                    <action selector="switchPlaceChanged:" destination="bf8-HI-HzM" eventType="valueChanged" id="h7f-Wt-8uw"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hay un recinto cerca de mí (2km o menos)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9H-X8-PLN">
