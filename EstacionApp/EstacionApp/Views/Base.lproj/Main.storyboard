@@ -105,11 +105,20 @@
                     <connections>
                         <outlet property="email" destination="V9P-rJ-lai" id="ZQN-Jc-1KF"/>
                         <outlet property="password" destination="2yi-3z-xb6" id="xhZ-Wj-FZl"/>
+                        <segue destination="tjy-vP-q5c" kind="show" identifier="successLogin" id="sdz-Ao-Fa2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3u-au-A8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1021.6" y="927.88605697151434"/>
+        </scene>
+        <!--HomeStoryboard-->
+        <scene sceneID="QtK-Kp-3vQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeStoryboard" id="tjy-vP-q5c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8hr-wO-sAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="980"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="ujC-Y1-m1C">

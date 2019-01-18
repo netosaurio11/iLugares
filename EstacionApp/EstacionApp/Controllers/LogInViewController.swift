@@ -34,7 +34,10 @@ class LogInViewController: UIViewController {
                             print("Error getting documents: \(err)")
                         } else {
                             for document in querySnapshot!.documents {
-                                print("\(document.documentID) => \(document.data())")
+                                let useremail = document.data()["email"]
+                                let userpassword = document.data()["password"]
+                                
+                                self.dataValid(useremail as! String, userpassword as! String)
                             }
                         }
                 }
@@ -56,6 +59,16 @@ class LogInViewController: UIViewController {
             self.present(errorAlert.missingFieldsAlert("Error", "Debes llenar ambos campos."), animated: true, completion: nil)
         }
         return true
+    }
+    
+
+    
+    func dataValid(_ useremail: String, _ userpassword: String){
+        if(useremail == email.text && userpassword == password.text){
+            performSegue(withIdentifier: "successLogin", sender: nil)
+        } else {
+            self.present(errorAlert.missingFieldsAlert("Error", "Tus datos son incorrectosr"), animated: true, completion: nil)
+        }
     }
 
 }

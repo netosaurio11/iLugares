@@ -14,7 +14,7 @@ struct User {
     var email: String = ""
     var phone: String = ""
     var password: String = ""
-    var rate: Double = 0.0
+    var rate: String = ""
     var address: String
     var parking: Bool = false
     var storestuff: Bool = false
