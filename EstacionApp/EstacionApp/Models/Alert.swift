@@ -14,9 +14,9 @@ struct Alert{
    
     let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
     
-    func correctRegister(_ title: String, _ message: String) -> UIAlertController {
+    func correctRegister(_ title: String, _ message: String, action: UIAlertAction) -> UIAlertController {
         let alertRegister = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertRegister.addAction(okAction)
+        alertRegister.addAction(action)
         return alertRegister
     }
     
@@ -34,5 +34,11 @@ struct Alert{
         let alertEmail = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertEmail.addAction(okAction)
         return alertEmail
+    }
+    
+    func createActionWithHandler(for controller: UIViewController) -> UIAlertAction {
+        return UIAlertAction(title: "Ok", style: .cancel) { [unowned controller] action in
+            controller.navigationController?.popViewController(animated: true)
+        }
     }
 }
