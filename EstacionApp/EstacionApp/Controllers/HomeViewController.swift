@@ -31,18 +31,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             print("Error saving session")
         }
     }
-    
-    
-    @IBAction func closeSession(_ sender: UIButton) {
-        let persistent = Persistent()
-        
-        persistent.deleteSession()
-        
-    navigationController?.popToViewController(self.navigationController?.viewControllers[0] as! InitialViewController, animated: true)
-        
-    }
 
-    
     
     
     

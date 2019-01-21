@@ -21,6 +21,7 @@
 		4294113421DD67D2002FFFE2 /* EstacionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294113321DD67D2002FFFE2 /* EstacionAppUITests.swift */; };
 		4294114421DD7DB9002FFFE2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294114321DD7DB9002FFFE2 /* RegisterViewController.swift */; };
 		4294114621DD7DD4002FFFE2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294114521DD7DD4002FFFE2 /* LogInViewController.swift */; };
+		429A4D7621F65CF4000526AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429A4D7521F65CF4000526AC /* ProfileViewController.swift */; };
 		42F7D5D021F41359000CCC4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42F7D5CF21F41359000CCC4F /* GoogleService-Info.plist */; };
 		42FF75A121F283F300916E84 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF75A021F283F300916E84 /* KeychainItemAccessibility.swift */; };
 		42FF75A321F2841900916E84 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF75A221F2841900916E84 /* KeychainWrapper.swift */; };
@@ -72,6 +73,7 @@
 		4294113521DD67D2002FFFE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4294114321DD7DB9002FFFE2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4294114521DD7DD4002FFFE2 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		429A4D7521F65CF4000526AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		42F7D5CF21F41359000CCC4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42FF75A021F283F300916E84 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		42FF75A221F2841900916E84 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				4294114521DD7DD4002FFFE2 /* LogInViewController.swift */,
 				74DF66CD21F4248F00EDDF93 /* HomeViewController.swift */,
 				74DF66CF21F511C200EDDF93 /* InitialViewController.swift */,
+				429A4D7521F65CF4000526AC /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				74DF66D221F5124200EDDF93 /* Persistent.swift in Sources */,
 				4294114421DD7DB9002FFFE2 /* RegisterViewController.swift in Sources */,
 				74DF66D021F511C200EDDF93 /* InitialViewController.swift in Sources */,
+				429A4D7621F65CF4000526AC /* ProfileViewController.swift in Sources */,
 				74DF66CE21F4248F00EDDF93 /* HomeViewController.swift in Sources */,
 				42036F3C21DEA09A00B6880E /* User.swift in Sources */,
 				42FF75A321F2841900916E84 /* KeychainWrapper.swift in Sources */,
