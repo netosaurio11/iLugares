@@ -35,9 +35,14 @@
                         <viewLayoutGuide key="safeArea" id="dGi-rt-Bev"/>
                     </view>
                     <navigationItem key="navigationItem" id="Dgb-iY-PaM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="hRX-za-GgC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="hRX-za-GgC">
                             <connections>
                                 <action selector="searchButtonTapped:" destination="RFd-i6-4ct" id="Vqa-Ii-Gve"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="58C-gL-MLc">
+                            <connections>
+                                <segue destination="OXm-5K-8CM" kind="show" id="1sv-Y0-Meh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -48,6 +53,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDK-9I-LiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="138.98050974512745"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="BlO-Lk-8D1">
+            <objects>
+                <viewController id="OXm-5K-8CM" customClass="ProfileViewController" customModule="EstacionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xno-gZ-ED6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXo-Ra-1F6">
+                                <rect key="frame" x="147" y="572" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeSession:" destination="OXm-5K-8CM" eventType="touchUpInside" id="k8A-sX-VkV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Qjx-XF-aYZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Gt-Z4-foh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oMC-Rn-9ww">
