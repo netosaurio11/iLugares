@@ -26,6 +26,8 @@
 		42FF75A321F2841900916E84 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF75A221F2841900916E84 /* KeychainWrapper.swift */; };
 		42FF7AAD21E9237400F75025 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF7AAC21E9237400F75025 /* Alert.swift */; };
 		74DF66CE21F4248F00EDDF93 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF66CD21F4248F00EDDF93 /* HomeViewController.swift */; };
+		74DF66D021F511C200EDDF93 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF66CF21F511C200EDDF93 /* InitialViewController.swift */; };
+		74DF66D221F5124200EDDF93 /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF66D121F5124200EDDF93 /* Persistent.swift */; };
 		B2DD9CF7B96C56797F538526 /* Pods_EstacionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332BB3F62732D3637E3FE39C /* Pods_EstacionApp.framework */; };
 		D44BA2D912A6AE689AC72657 /* Pods_EstacionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7457E067A3B336B36D2478 /* Pods_EstacionAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		43E3AAA96149A00CD1F3106D /* Pods-EstacionAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EstacionAppUITests/Pods-EstacionAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		47FC322121EFCFBE671AA299 /* Pods-EstacionApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EstacionApp/Pods-EstacionApp.release.xcconfig"; sourceTree = "<group>"; };
 		74DF66CD21F4248F00EDDF93 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		74DF66CF21F511C200EDDF93 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		74DF66D121F5124200EDDF93 /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
 		E31BF2CDF10FE07651A3F186 /* Pods-EstacionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EstacionApp/Pods-EstacionApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EB7457E067A3B336B36D2478 /* Pods_EstacionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstacionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F353E8B93A3492DE0EFB5279 /* Pods_EstacionAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstacionAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +120,11 @@
 			children = (
 				42036F3B21DEA09A00B6880E /* User.swift */,
 				42FF7AAC21E9237400F75025 /* Alert.swift */,
+
+				74DF66D121F5124200EDDF93 /* Persistent.swift */,
+
 				42017B0821F5639800917FAE /* Address.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,6 +144,7 @@
 				4294114321DD7DB9002FFFE2 /* RegisterViewController.swift */,
 				4294114521DD7DD4002FFFE2 /* LogInViewController.swift */,
 				74DF66CD21F4248F00EDDF93 /* HomeViewController.swift */,
+				74DF66CF21F511C200EDDF93 /* InitialViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -475,7 +484,9 @@
 				42017B0921F5639800917FAE /* Address.swift in Sources */,
 				42FF7AAD21E9237400F75025 /* Alert.swift in Sources */,
 				4294114621DD7DD4002FFFE2 /* LogInViewController.swift in Sources */,
+				74DF66D221F5124200EDDF93 /* Persistent.swift in Sources */,
 				4294114421DD7DB9002FFFE2 /* RegisterViewController.swift in Sources */,
+				74DF66D021F511C200EDDF93 /* InitialViewController.swift in Sources */,
 				74DF66CE21F4248F00EDDF93 /* HomeViewController.swift in Sources */,
 				42036F3C21DEA09A00B6880E /* User.swift in Sources */,
 				42FF75A321F2841900916E84 /* KeychainWrapper.swift in Sources */,

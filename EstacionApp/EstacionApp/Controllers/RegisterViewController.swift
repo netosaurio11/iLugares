@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     var user: User = User(name: "", lastname: "", email: "", phone: "", password: "", rate: "0", address: "", parking: false, storestuff: false)
     var db: Firestore!
     let alert = Alert()
+    var success: Bool = false
 
     
     //Basic Info
@@ -80,6 +81,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         case false:
             normalRegister()
 
+        }
+        if success {
+            navigationController?.popViewController(animated: true)
         }
     }
     
@@ -186,9 +190,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
-                self.present(self.alert.correctRegister("Usuario Registrado", "Has sido registrado correctamente"), animated: true, completion: nil)
+                self.present(self.alert.correctRegister("Usuario Registrado", "Has sido registrado correctamente", action: self.alert.createActionWithHandler(for: self)), animated: true, completion: nil)
                 self.clearTextFields()
                 self.hidePlaceElements()
+                self.success = true
             }
         }
     }
@@ -211,9 +216,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
-                self.present(self.alert.correctRegister("Usuario Registrado", "Has sido registrado correctamente"), animated: true, completion: nil)
+                self.present(self.alert.correctRegister("Usuario Registrado", "Has sido registrado correctamente", action: self.alert.createActionWithHandler(for: self)), animated: true, completion: nil)
                 self.clearTextFields()
                 self.hidePlaceElements()
+                self.success = true
             }
         }
     }

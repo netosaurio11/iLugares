@@ -9,13 +9,42 @@
 import UIKit
 import MapKit
 
-class HomeViewController: UIViewController, UISearchBarDelegate{
+class HomeViewController: UIViewController, UISearchBarDelegate {
     
-    @IBOutlet weak var mapView: MKMapView!
-    
+  @IBOutlet weak var mapView: MKMapView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func saveSession(for user: String, _ password: String) {
+        let persistent = Persistent()
+        if persistent.saveSession(user, password) {
+            print("Session saved with success")
+        } else {
+            print("Error saving session")
+        }
+    }
+    
+    
+    @IBAction func closeSession(_ sender: UIButton) {
+        let persistent = Persistent()
+        
+        persistent.deleteSession()
+        
+    navigationController?.popToViewController(self.navigationController?.viewControllers[0] as! InitialViewController, animated: true)
+        
+    }
+
+    
+    
+    
     
     @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
