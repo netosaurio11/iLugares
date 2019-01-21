@@ -77,8 +77,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qjx-XF-aYZ"/>
                     </view>
+                    <connections>
+                        <segue destination="uFJ-Hl-YCU" kind="unwind" identifier="unwindToViewController1" unwindAction="prepareForUnwindWithSegue:" id="TWJ-vC-yIF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Gt-Z4-foh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uFJ-Hl-YCU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1870" y="139"/>
         </scene>

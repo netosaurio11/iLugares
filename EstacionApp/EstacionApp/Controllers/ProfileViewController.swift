@@ -21,8 +21,16 @@ class ProfileViewController: UIViewController {
         let persistent = Persistent()
         
         persistent.deleteSession()
+        self.performSegue(withIdentifier: "unwindToViewController1", sender: self)
+//        let rootVC: UIViewController?
+//        
+//        rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "initialVC") as! InitialViewController
+//        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        
+//        appDelegate.window?.rootViewController = rootVC
         
-        navigationController?.popToViewController(self.navigationController?.viewControllers[0] as! InitialViewController, animated: true)
+        //navigationController?.popToViewController(self.navigationController?.viewControllers[0] as! InitialViewController, animated: true)
         
     }
 

@@ -29,7 +29,9 @@ class InitialViewController: UIViewController {
         verifySession()
     }
     
-
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
+    }
     
     func verifySession() {
         let persistent = Persistent()

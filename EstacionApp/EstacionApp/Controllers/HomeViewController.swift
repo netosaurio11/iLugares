@@ -31,8 +31,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             print("Error saving session")
         }
     }
-    
-    
+
     
     
     
