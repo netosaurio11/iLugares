@@ -23,6 +23,8 @@ class LogInViewController: UIViewController {
         Firestore.firestore().settings = settings
         // [END setup]
         db = Firestore.firestore()
+        
+        navigationController?.isNavigationBarHidden = false
     }
     @IBAction func logIn(_ sender: UIButton) {
          let usersRef = db.collection("users")
@@ -65,10 +67,19 @@ class LogInViewController: UIViewController {
     
     func dataValid(_ useremail: String, _ userpassword: String){
         if(useremail == email.text && userpassword == password.text){
-            performSegue(withIdentifier: "successLogin", sender: nil)
+            let session = (useremail, userpassword)
+            performSegue(withIdentifier: "successLogin", sender: session)
         } else {
             self.present(errorAlert.missingFieldsAlert("Error", "Tus datos son incorrectosr"), animated: true, completion: nil)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationNC = segue.destination as! UINavigationController
+        let destination = destinationNC.viewControllers[0] as! HomeViewController
+        let (user, password) = sender as! (String, String)
+        
+        destination.saveSession(for: user, password)
     }
 
 }
