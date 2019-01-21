@@ -120,11 +120,8 @@
 			children = (
 				42036F3B21DEA09A00B6880E /* User.swift */,
 				42FF7AAC21E9237400F75025 /* Alert.swift */,
-
 				74DF66D121F5124200EDDF93 /* Persistent.swift */,
-
 				42017B0821F5639800917FAE /* Address.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
