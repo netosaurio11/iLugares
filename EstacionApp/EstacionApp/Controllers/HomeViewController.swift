@@ -12,11 +12,10 @@ import MapKit
 class HomeViewController: UIViewController, UISearchBarDelegate {
     
   @IBOutlet weak var mapView: MKMapView!
+  var resultSearchController:UISearchController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,8 +35,16 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     
     
     @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
-        let searchController = UISearchController(searchResultsController: nil)
+        
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        
+        let searchController = UISearchController(searchResultsController: locationSearchTable)
+        searchController.searchResultsUpdater = locationSearchTable
         searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for places"
+        definesPresentationContext = true
+        locationSearchTable.mapView = mapView
+        
         present(searchController, animated: true, completion: nil)
         
     }
