@@ -9,10 +9,16 @@
 import UIKit
 import MapKit
 
-class HomeViewController: UIViewController, UISearchBarDelegate {
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark)
+}
+
+class HomeViewController: UIViewController, UISearchBarDelegate, HandleMapSearch {
+
     
+    var resultSearchController:UISearchController? = nil
+    var selectedPin:MKPlacemark? = nil
   @IBOutlet weak var mapView: MKMapView!
-  var resultSearchController:UISearchController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +37,23 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         }
     }
 
-    
+    func dropPinZoomIn(placemark: MKPlacemark) {
+        // cache the pin
+        selectedPin = placemark
+        // clear existing pins
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        if let city = placemark.locality,
+            let state = placemark.administrativeArea {
+            annotation.subtitle = "(city) (state)"
+        }
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+    }
     
     
     @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
@@ -44,6 +66,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         searchController.searchBar.placeholder = "Search for places"
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
+        locationSearchTable.handleMapSearchDelegate = self
         
         present(searchController, animated: true, completion: nil)
         
