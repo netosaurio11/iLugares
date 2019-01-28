@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23E7E632F3D1E7891DF7E0FD /* Pods_EstacionAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F353E8B93A3492DE0EFB5279 /* Pods_EstacionAppTests.framework */; };
+		420050A321FFB0DF00C8A94F /* RegisterLocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420050A221FFB0DF00C8A94F /* RegisterLocationSearchTable.swift */; };
 		42017B0721F558F400917FAE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42017B0621F558F400917FAE /* MapKit.framework */; };
 		42017B0921F5639800917FAE /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42017B0821F5639800917FAE /* Address.swift */; };
 		42021B8C21F11A6D007B1FC7 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42021B8B21F11A6D007B1FC7 /* HomeStoryboard.storyboard */; };
@@ -56,6 +57,7 @@
 		2D471480F85B582757014B1E /* Pods-EstacionAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EstacionAppTests/Pods-EstacionAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		332BB3F62732D3637E3FE39C /* Pods_EstacionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstacionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB68DB44346B833F3DBD6C2 /* Pods-EstacionAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EstacionAppTests/Pods-EstacionAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		420050A221FFB0DF00C8A94F /* RegisterLocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationSearchTable.swift; sourceTree = "<group>"; };
 		42017B0621F558F400917FAE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42017B0821F5639800917FAE /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		42021B8B21F11A6D007B1FC7 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				4294114321DD7DB9002FFFE2 /* RegisterViewController.swift */,
+				420050A221FFB0DF00C8A94F /* RegisterLocationSearchTable.swift */,
 				4294114521DD7DD4002FFFE2 /* LogInViewController.swift */,
 				74DF66CD21F4248F00EDDF93 /* HomeViewController.swift */,
 				42034F0421F7BE11008BE035 /* LocationSearchTable.swift */,
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420050A321FFB0DF00C8A94F /* RegisterLocationSearchTable.swift in Sources */,
 				42034F0521F7BE11008BE035 /* LocationSearchTable.swift in Sources */,
 				42017B0921F5639800917FAE /* Address.swift in Sources */,
 				42FF7AAD21E9237400F75025 /* Alert.swift in Sources */,
