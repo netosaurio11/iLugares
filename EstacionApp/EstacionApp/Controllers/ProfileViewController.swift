@@ -49,8 +49,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("View did load")
-        
         database.readFromDatabase { (result: User) in
             self.user = result
             DispatchQueue.main.async {

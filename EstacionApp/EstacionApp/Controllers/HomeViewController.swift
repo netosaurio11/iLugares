@@ -30,6 +30,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, HandleMapSearch
     
     func saveSession(for user: String, _ password: String) {
         let persistent = Persistent()
+        
         if persistent.saveSession(user, password) {
             print("Session saved with success")
         } else {
