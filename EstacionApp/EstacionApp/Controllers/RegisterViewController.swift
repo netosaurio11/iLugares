@@ -8,9 +8,13 @@
 
 import UIKit
 import Firebase
+import MapKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
-    
+protocol HandleResultsSearch {
+    func dropValueOf(placemark:MKPlacemark)
+}
+
+class RegisterViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate, HandleResultsSearch {
     var user: User = User(name: "", lastname: "", email: "", phone: "", password: "", rate: "0", address: "", parking: false, storestuff: false)
     var db: Firestore!
     let alert = Alert()
@@ -34,6 +38,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var parkingLabel: UILabel!
     @IBOutlet weak var storeStuffSwitch: UISwitch!
     @IBOutlet weak var storeStuffLabel: UILabel!
+    @IBOutlet weak var addAddress: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,6 +161,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         parkingLabel.isHidden = false
         storeStuffSwitch.isHidden = false
         storeStuffLabel.isHidden = false
+        addAddress.isHidden = false
     }
     func hidePlaceElements(){
         rate.isHidden = true
@@ -164,6 +170,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         parkingLabel.isHidden = true
         storeStuffSwitch.isHidden = true
         storeStuffLabel.isHidden = true
+        addAddress.isHidden = true
     }
     func clearTextFields(){
         names.text = ""
@@ -235,4 +242,22 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
+    
+    @IBAction func addAddressTapped(_ sender: UIButton) {
+        address.isEnabled = true
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "RegisterLocationSearchTable") as! RegisterLocationSearchTable
+        
+        let searchController = UISearchController(searchResultsController: locationSearchTable)
+        searchController.searchResultsUpdater = locationSearchTable
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for places"
+        definesPresentationContext = true
+        locationSearchTable.handleResultsSearchDelegate = self
+        present(searchController, animated: true, completion: nil)
+    }
+    
+    func dropValueOf(placemark: MKPlacemark) {
+        address.text = placemark.title
+    }
+    
 }
