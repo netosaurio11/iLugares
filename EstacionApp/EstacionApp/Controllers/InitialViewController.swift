@@ -56,7 +56,6 @@ class InitialViewController: UIViewController {
                     }
             }
         }
-        
     }
     
 

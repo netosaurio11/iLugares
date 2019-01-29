@@ -78,7 +78,6 @@ class LogInViewController: UIViewController {
         let destinationNC = segue.destination as! UINavigationController
         let destination = destinationNC.viewControllers[0] as! HomeViewController
         let (user, password) = sender as! (String, String)
-        
         destination.saveSession(for: user, password)
     }
 
