@@ -27,7 +27,7 @@ class RegisterLocationSearchTable: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "registerCell")!
         let selectedItem = matchingItems[indexPath.row].placemark
         cell.textLabel?.text = selectedItem.name
-        cell.detailTextLabel?.text = ""
+        cell.detailTextLabel?.text = selectedItem.title
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
