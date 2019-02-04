@@ -64,11 +64,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dgb-iY-PaM">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="hRX-za-GgC">
+                            <color key="tintColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="searchButtonTapped:" destination="RFd-i6-4ct" id="Vqa-Ii-Gve"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="58C-gL-MLc">
+                            <color key="tintColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="OXm-5K-8CM" kind="show" id="1sv-Y0-Meh"/>
                             </connections>
@@ -108,8 +110,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eah-ew-gdP">
-                                        <rect key="frame" x="20" y="20" width="71" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eah-ew-gdP">
+                                        <rect key="frame" x="20" y="20" width="94" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="zNn-tu-1jR"/>
                                         </constraints>
@@ -118,19 +120,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-Jg-Vus">
-                                        <rect key="frame" x="116" y="50" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="139" y="50" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N74-KO-7Yg">
-                                        <rect key="frame" x="170" y="128" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="152" y="128" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCB-qt-SHL">
-                                        <rect key="frame" x="121" y="336" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="144" y="336" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -151,8 +153,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastnames:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcF-gY-cvg">
-                                        <rect key="frame" x="20" y="128" width="125" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apellidos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcF-gY-cvg">
+                                        <rect key="frame" x="20" y="128" width="107" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="HwY-Cr-Ww6"/>
                                         </constraints>
@@ -160,8 +162,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQ3-fY-FFn">
-                                        <rect key="frame" x="20" y="414" width="111" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQ3-fY-FFn">
+                                        <rect key="frame" x="20" y="414" width="132" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="I6x-Yl-WEy"/>
                                         </constraints>
@@ -169,8 +171,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFl-VY-9vo">
-                                        <rect key="frame" x="20" y="306" width="76" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFl-VY-9vo">
+                                        <rect key="frame" x="20" y="306" width="99" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fdZ-bd-YVE"/>
                                         </constraints>
@@ -209,9 +211,9 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtb-2H-Vko">
-                                        <rect key="frame" x="138.5" y="645" width="98" height="48"/>
+                                        <rect key="frame" x="100" y="645" width="175" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Log out">
+                                        <state key="normal" title="Cerrar Sesión">
                                             <color key="titleColor" red="0.92891609668731689" green="0.21953278779983521" blue="0.19875350594520569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -219,29 +221,37 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFC-9b-pSD">
-                                        <rect key="frame" x="282" y="96" width="53" height="30"/>
-                                        <state key="normal" title="Change"/>
+                                        <rect key="frame" x="267" y="96" width="68" height="30"/>
+                                        <state key="normal" title="Actualizar">
+                                            <color key="titleColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="changeBtnPressed:" destination="OXm-5K-8CM" eventType="touchUpInside" id="TIC-Uw-aNd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWu-RZ-kGi">
-                                        <rect key="frame" x="282" y="204" width="53" height="30"/>
-                                        <state key="normal" title="Change"/>
+                                        <rect key="frame" x="267" y="204" width="68" height="30"/>
+                                        <state key="normal" title="Actualizar">
+                                            <color key="titleColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="changeBtnPressed:" destination="OXm-5K-8CM" eventType="touchUpInside" id="aDW-9w-yP3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzA-Fk-Jtd">
-                                        <rect key="frame" x="282" y="382" width="53" height="30"/>
-                                        <state key="normal" title="Change"/>
+                                        <rect key="frame" x="267" y="382" width="68" height="30"/>
+                                        <state key="normal" title="Actualizar">
+                                            <color key="titleColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="changeBtnPressed:" destination="OXm-5K-8CM" eventType="touchUpInside" id="hHS-lY-41s"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c8-QP-oUb">
-                                        <rect key="frame" x="282" y="490" width="53" height="30"/>
-                                        <state key="normal" title="Change"/>
+                                        <rect key="frame" x="267" y="490" width="68" height="30"/>
+                                        <state key="normal" title="Actualizar">
+                                            <color key="titleColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="changeBtnPressed:" destination="OXm-5K-8CM" eventType="touchUpInside" id="ile-3P-poF"/>
                                         </connections>
@@ -344,6 +354,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7OE-0S-FGZ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
