@@ -98,13 +98,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, HandleMapSearch
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        self.putAnnotationFor(document.data()["address"]! as! String, document.data()["names"]! as! String )
+                        self.putAnnotationFor(document.data()["address"]! as! String, document.data()["names"]! as! String, document.data()["phone"]! as! String, document.data()["rate"]! as! String)
                     }
                 }
         }
     }
     
-    func putAnnotationFor(_ address: String, _ title: String){
+    func putAnnotationFor(_ address: String, _ title: String, _ contacto: String, _ tarifa: String){
         let annotation = MKPointAnnotation()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = address
@@ -114,7 +114,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, HandleMapSearch
             guard let response = response else { return }
             annotation.coordinate = response.mapItems[0].placemark.coordinate
             annotation.title = title
-            annotation.subtitle = response.mapItems[0].placemark.title
+            //response.mapItems[0].placemark.title
+            annotation.subtitle = "Contacto:\(contacto), Tarifa: $\(tarifa).00 "
             self.mapView.addAnnotation(annotation)
         }
     }
@@ -139,4 +140,30 @@ extension HomeViewController: CLLocationManagerDelegate {
             mapView.setRegion(region, animated: true)
         }
     }
+}
+
+extension HomeViewController : MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+        pinView!.pinTintColor = UIColor.green
+        pinView!.canShowCallout = true
+        let btn = UIButton(type: .detailDisclosure)
+        btn.addTarget(self, action: #selector(getDirection), for: .touchUpInside)
+        pinView!.leftCalloutAccessoryView = btn
+        return pinView
+    }
+    
+    @objc func getDirection(){
+        if let selectedPin = selectedPin {
+            let mapItem = MKMapItem(placemark: selectedPin)
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+            mapItem.openInMaps(launchOptions: launchOptions)
+        }
+    }
+    
 }
