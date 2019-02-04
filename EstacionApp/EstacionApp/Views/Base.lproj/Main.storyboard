@@ -145,7 +145,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWw-i0-rDx">
                                         <rect key="frame" x="120" y="662" width="135" height="30"/>
-                                        <color key="backgroundColor" red="0.28680264950000001" green="0.44021388890000002" blue="0.42752918600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.28627450980392155" green="0.4392156862745098" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="2ZH-Fw-EEh"/>
                                             <constraint firstAttribute="width" constant="135" id="yEE-XI-nlL"/>
@@ -310,6 +310,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1Xa-lO-Nqi"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="addAddressTapped:" destination="bf8-HI-HzM" eventType="touchUpInside" id="E1w-zG-95u"/>
                                         </connections>
@@ -462,6 +463,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.85962980990000004" green="0.85597300529999998" blue="0.8121650815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.28627450980000002" green="0.43921568630000002" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.85962980990000004" green="0.85597300529999998" blue="0.8121650815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -475,6 +477,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sdz-Ao-Fa2"/>
+        <segue reference="O6x-cy-UsM"/>
     </inferredMetricsTieBreakers>
 </document>
