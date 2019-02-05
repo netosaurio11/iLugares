@@ -8,9 +8,13 @@
 
 import UIKit
 import Firebase
+import MapKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
-    
+protocol HandleResultsSearch {
+    func dropValueOf(placemark:MKPlacemark)
+}
+
+class RegisterViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate, HandleResultsSearch {
     var user: User = User(name: "", lastname: "", email: "", phone: "", password: "", rate: "0", address: "", parking: false, storestuff: false)
     var db: Firestore!
     let alert = Alert()
@@ -34,11 +38,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var parkingLabel: UILabel!
     @IBOutlet weak var storeStuffSwitch: UISwitch!
     @IBOutlet weak var storeStuffLabel: UILabel!
+    @IBOutlet weak var addAddress: UIButton!
+    //Scroll view
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         hidePlaceElements()
         // [START setup]
         let settings = FirestoreSettings()
@@ -48,23 +55,37 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         db = Firestore.firestore()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if (thereIsAPlace.isOn){
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                if self.view.frame.origin.y == 0 {
-                    self.view.frame.origin.y -= keyboardSize.height
-                }
-            }
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        //Observers para el teclado
+        NotificationCenter.default.addObserver(self, selector: #selector(self.adjustForKeyboard(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        
+        super.viewWillAppear(animated)
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if (thereIsAPlace.isOn == false){
-            if self.view.frame.origin.y != 0 {
-                self.view.frame.origin.y = 0
-            }
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        super.viewWillDisappear(animated)
     }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = UIEdgeInsets.zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+        
+    }
+    
 
     @IBAction func switchPlaceChanged(_ sender: UISwitch) {
         if thereIsAPlace.isOn{
@@ -156,6 +177,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         parkingLabel.isHidden = false
         storeStuffSwitch.isHidden = false
         storeStuffLabel.isHidden = false
+        addAddress.isHidden = false
     }
     func hidePlaceElements(){
         rate.isHidden = true
@@ -164,6 +186,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         parkingLabel.isHidden = true
         storeStuffSwitch.isHidden = true
         storeStuffLabel.isHidden = true
+        addAddress.isHidden = true
     }
     func clearTextFields(){
         names.text = ""
@@ -235,4 +258,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
+    
+    @IBAction func addAddressTapped(_ sender: UIButton) {
+        address.isEnabled = true
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "RegisterLocationSearchTable") as! RegisterLocationSearchTable
+        
+        let searchController = UISearchController(searchResultsController: locationSearchTable)
+        searchController.searchResultsUpdater = locationSearchTable
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for places"
+        definesPresentationContext = true
+        locationSearchTable.handleResultsSearchDelegate = self
+        present(searchController, animated: true, completion: nil)
+    }
+    
+    func dropValueOf(placemark: MKPlacemark) {
+        address.text = placemark.title
+    }
+    
+    
+    @IBAction func closeKeyboarkTap(_ sender: UITapGestureRecognizer) {
+        //Terminar edición
+        self.view.endEditing(true)
+    }
+    
 }

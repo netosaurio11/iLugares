@@ -36,6 +36,12 @@ struct Alert{
         return alertEmail
     }
     
+    func infoUpdate(_ title: String, _ message: String, _ controller: UIViewController) -> UIAlertController {
+        let alertInfoUpdate = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertInfoUpdate.addAction(createActionWithHandler(for: controller))
+        return alertInfoUpdate
+    }
+    
     func createActionWithHandler(for controller: UIViewController) -> UIAlertAction {
         return UIAlertAction(title: "Ok", style: .cancel) { [unowned controller] action in
             controller.navigationController?.popViewController(animated: true)

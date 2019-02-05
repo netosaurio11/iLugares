@@ -31,7 +31,7 @@ class LogInViewController: UIViewController {
         if verifyTextFields() {
             if let userEmail = email.text{
                 usersRef.whereField("email", isEqualTo: userEmail)
-                    .getDocuments() { (querySnapshot, err) in
+                    .getDocuments() { [unowned self] (querySnapshot, err) in
                         if let err = err {
                             print("Error getting documents: \(err)")
                         } else {
@@ -78,7 +78,6 @@ class LogInViewController: UIViewController {
         let destinationNC = segue.destination as! UINavigationController
         let destination = destinationNC.viewControllers[0] as! HomeViewController
         let (user, password) = sender as! (String, String)
-        
         destination.saveSession(for: user, password)
     }
 
