@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, HandleMapSearch
     var locationManager = CLLocationManager()
     var db: Firestore!
     var annotations: [String] = []
+    var annotationSelected: MKAnnotationView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, HandleMapSearch
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
+        mapView.delegate = self
         gettingAnotation()
     }
     
@@ -143,6 +144,7 @@ extension HomeViewController: CLLocationManagerDelegate {
 }
 
 extension HomeViewController : MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
             return nil
@@ -154,8 +156,33 @@ extension HomeViewController : MKMapViewDelegate {
         pinView!.canShowCallout = true
         let btn = UIButton(type: .detailDisclosure)
         btn.addTarget(self, action: #selector(getDirection), for: .touchUpInside)
+        let contactBtn = UIButton(type: .contactAdd)
+        contactBtn.addTarget(self, action: #selector(contactForRent), for: .touchUpInside)
         pinView!.leftCalloutAccessoryView = btn
+        pinView?.rightCalloutAccessoryView = contactBtn
         return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        annotationSelected = view
+    }
+    
+    @objc func contactForRent() {
+        print(annotationSelected?.annotation?.title)
+        if let annotation = annotationSelected?.annotation {
+            let names = annotation.title
+            let usersRef = db.collection("users")
+            usersRef.whereField("names", isEqualTo: names)
+                .getDocuments() { [unowned self] (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            print(document.data()["names"] as! String)
+                        }
+                    }
+            }
+        }
     }
     
     @objc func getDirection(){
