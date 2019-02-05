@@ -15,6 +15,7 @@
 		42034F0521F7BE11008BE035 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42034F0421F7BE11008BE035 /* LocationSearchTable.swift */; };
 		42036F3C21DEA09A00B6880E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42036F3B21DEA09A00B6880E /* User.swift */; };
 		4209D12621E69A3600F2E2EE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294114321DD7DB9002FFFE2 /* RegisterViewController.swift */; };
+		421A330B22090DF000881BFD /* Icon-4096.png in Resources */ = {isa = PBXBuildFile; fileRef = 421A330A22090DEF00881BFD /* Icon-4096.png */; };
 		4294111421DD67D1002FFFE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294111321DD67D1002FFFE2 /* AppDelegate.swift */; };
 		4294111921DD67D1002FFFE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4294111721DD67D1002FFFE2 /* Main.storyboard */; };
 		4294111B21DD67D2002FFFE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4294111A21DD67D2002FFFE2 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		42021B8B21F11A6D007B1FC7 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		42034F0421F7BE11008BE035 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		42036F3B21DEA09A00B6880E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		421A330A22090DEF00881BFD /* Icon-4096.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-4096.png"; sourceTree = "<group>"; };
 		4294111021DD67D1002FFFE2 /* EstacionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EstacionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4294111321DD67D1002FFFE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4294111821DD67D1002FFFE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				42036F3821DEA04000B6880E /* Models */,
 				4294111321DD67D1002FFFE2 /* AppDelegate.swift */,
 				4294111A21DD67D2002FFFE2 /* Assets.xcassets */,
+				421A330A22090DEF00881BFD /* Icon-4096.png */,
 				4294111C21DD67D2002FFFE2 /* LaunchScreen.storyboard */,
 				4294111F21DD67D2002FFFE2 /* Info.plist */,
 				42F7D5CF21F41359000CCC4F /* GoogleService-Info.plist */,
@@ -355,6 +358,7 @@
 				4294111E21DD67D2002FFFE2 /* LaunchScreen.storyboard in Resources */,
 				4294111B21DD67D2002FFFE2 /* Assets.xcassets in Resources */,
 				4294111921DD67D1002FFFE2 /* Main.storyboard in Resources */,
+				421A330B22090DF000881BFD /* Icon-4096.png in Resources */,
 				42021B8C21F11A6D007B1FC7 /* HomeStoryboard.storyboard in Resources */,
 				42F7D5D021F41359000CCC4F /* GoogleService-Info.plist in Resources */,
 			);
